@@ -1,0 +1,74 @@
+$hero-banner-max-content-width: 700px;
+
+.hero-banner {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: $header-height;
+    text-align: center;
+    
+    &.image-bg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    @media #{$medium-up} {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    @media #{$large-up} {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    h1 {
+        margin: 0 auto;
+
+        @media #{$medium-up} {
+            max-width: $hero-banner-max-content-width;
+        }
+
+        + #{$btn-scope} {
+            margin-top: $line-height-computed;
+        }
+    }
+
+    p {
+        max-width: $hero-banner-max-content-width;
+        margin: 0 auto;
+        margin-top: $line-height-computed;
+        font-size: $font-size-base;
+
+        @media #{$medium-up} {
+            font-size: $font-size-base * $font-size-large-multiplier;
+        }
+    }
+
+    .btn {
+        margin-top: $line-height-computed;
+    }
+
+    .preheader {
+        display: block;
+        font-size: $font-size-base;
+        margin-bottom: 0.5em;
+
+        @media #{$medium-up} {
+            font-size: $font-size-base * $font-size-large-multiplier;
+            margin-bottom: 0.7em;
+        }
+    }
+
+    .home & {
+        h1 {
+            font-weight: $font-weight-bold;
+            margin-bottom: 0;
+            font-size: map-deep-get($heading-font-sizes, "h1", "small") * $font-size-large-multiplier;
+
+            @media #{$medium-up} {
+                font-size: map-deep-get($heading-font-sizes, "h1", "large") * $font-size-large-multiplier;
+            }
+        }
+    }
+}

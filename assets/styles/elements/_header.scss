@@ -1,0 +1,642 @@
+.header-wrapper-contained {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-content-width;
+
+    @media #{$medium-up} {
+        padding-left: map-get($content-wrapper-padding, "medium");
+        padding-right: map-get($content-wrapper-padding, "medium");
+    }
+
+    @media #{$large-up} {
+        padding-left: map-get($content-wrapper-padding, "large");
+        padding-right: map-get($content-wrapper-padding, "large");
+    }
+}
+
+.header-wrapper-fluid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $fluid-container-width;
+}
+
+
+// Items to keep uncollapsed on small screens
+.header-essentials {
+    @include clearfix;
+
+    @media #{$medium-up} {
+        float: left;
+    }
+}
+
+// Inner wrapper for header content
+.header-content {
+    position: relative;
+    min-height: $header-height;
+    margin-bottom: $header-margin-bottom;
+    @include clearfix;
+    background-color: $header-bg;
+    border: $header-border;
+
+    .header-text {
+        color: $header-color;
+    }
+
+    .header-nav-links {
+        > li > a {
+            color: $header-link-color;
+
+            &:hover,
+            &:focus {
+                color: $header-link-hover-color;
+            }
+        }
+        > .active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: $header-link-hover-color;
+            }
+        }
+    }
+
+    .header-form {
+        border-color: $gray-4;
+    }
+
+    // Dropdown menu items
+    .header-nav-links {
+        // Remove background color from open dropdown
+        > .open > a {
+            &,
+            &:hover,
+            &:focus {
+                background-color: $header-nav-link-hover-bg;
+                color: $white;
+            }
+        }
+
+        @media #{$small-only} {
+            // Dropdowns get custom display when collapsed
+            .open .dropdown-menu {
+                > li > a {
+                    color: $white;
+                    &:hover,
+                    &:focus {
+                        color: $white;
+                        background-color: $header-nav-link-hover-bg;
+                    }
+                }
+                > .active > a {
+                    &,
+                    &:hover,
+                    &:focus {
+                        color: $white;
+                        background-color: $header-nav-link-hover-bg;
+                    }
+                }
+            }
+        }
+    }
+
+    .header-link {
+        color: $header-link-color;
+        &:hover {
+            color: $header-link-hover-color;
+        }
+    }
+
+    .btn-link {
+        color: $header-link-color;
+        &:hover,
+        &:focus {
+            color: $header-link-hover-color;
+        }
+    }
+}
+
+.header-collapsable-content {
+    overflow-x: visible;
+    padding-right: $header-padding-horizontal;
+    padding-left:    $header-padding-horizontal;
+    border-top: $header-collapse-border;
+    @include clearfix;
+    -webkit-overflow-scrolling: touch;
+
+    &.in {
+        overflow-y: auto;
+    }
+
+    @media #{$medium-up} {
+        width: auto;
+        border-top: 0;
+        box-shadow: none;
+
+        &.collapse {
+            display: block !important;
+            height: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+        }
+
+        &.in {
+            overflow-y: visible;
+        }
+    }
+}
+
+.header-fixed-top,
+.header-fixed-bottom {
+    .header-collapsable-content {
+        max-height: $header-collapse-max-height;
+
+        @media (max-device-width: #{upper-bound($small-range)}) and (orientation: landscape) {
+            max-height: 200px;
+        }
+    }
+}
+
+// Fix the top/bottom headers when screen real estate supports it
+.header-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    border-width: 0 0 1px;
+    z-index: $zindex-header-fixed;
+}
+
+// For site name (no logo)
+.header-branding-text {
+    float: left;
+    padding-top: $header-padding-vertical;
+    padding-bottom: $header-padding-vertical;
+    margin-right: $header-padding-horizontal;
+    margin-left: $header-padding-horizontal;
+    font-size: $font-size-base * $font-size-large-multiplier;
+    line-height: $line-height-computed;
+    height: $header-height;
+    color: $header-color;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $header-link-color;
+    }
+
+    a {
+        color: $header-link-color;
+    }
+
+    @media #{$medium-up} {
+        .header-wrapper-contained & {
+            margin-left: 0;
+        }
+    }
+}
+
+// For site logo
+.header-branding-logo {
+    float: left;
+    padding-top: ceil(($header-height - ($header-logo-height * $header-logo-height-small-multiplier)) / 2);
+    padding-bottom: ceil(($header-height - ($header-logo-height * $header-logo-height-small-multiplier)) / 2);
+    margin-right: $header-padding-horizontal;
+    margin-left: $header-padding-horizontal;
+    font-size: $font-size-base * $font-size-large-multiplier;
+    line-height: $line-height-computed;
+    height: $header-height;
+    color: $header-color;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $header-link-color;
+    }
+
+    a {
+        color: $header-link-color;
+    }
+
+    > img, > svg {
+        display: block;
+    }
+
+    .logo {
+        height: $header-logo-height * $header-logo-height-small-multiplier;
+    }
+
+    @media #{$medium-up} {
+        padding-top: ceil(($header-height - $header-logo-height) / 2);
+        padding-bottom: ceil(($header-height - $header-logo-height) / 2);
+
+        .logo {
+            height: $header-logo-height;
+        }
+
+        .header-wrapper-contained & {
+            margin-left: 0;
+        }
+    }
+}
+
+
+.header-toggle-button {
+    width: $header-toggle-width;
+    height: $header-toggle-height;
+    display: block;
+    position: relative;
+    float: right;
+    margin-right: $header-padding-horizontal;
+    padding: $header-toggle-padding;
+    @include header-vertical-align(34px);
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: $border-radius-base;
+
+    &:hover, &:active, &:focus {
+        background-color: transparent;
+    }
+
+    .icon-bar {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: $header-toggle-line-width;
+        background: $header-toggle-icon-color;
+        border-radius: 2px;
+        opacity: 1;
+        left: $header-toggle-line-indent;
+        @include rotate(0deg);
+        @include transition(.25s ease-in-out);
+
+        &:nth-child(2), &:nth-child(5) {
+            width: 0%; left: 50%; top: 50%;
+        }
+
+        &:nth-child(3) {
+            @include rotate(45deg);
+            top: 50%;
+        }
+
+        &:nth-child(4) {
+            @include rotate(-45deg);
+            top: 50%;
+        }  
+    }
+
+    &.collapsed {
+        .icon-bar {
+            &:nth-child(2) {
+                top: 27%;
+                width: $header-toggle-line-width;
+                left: $header-toggle-line-indent;
+                @include rotate(0deg);
+            }
+
+            &:nth-child(3), &:nth-child(4) {
+                top: 50%;
+                @include rotate(0deg);
+            }
+
+            &:nth-child(5) {
+                top: 73%;
+                width: $header-toggle-line-width;
+                left: $header-toggle-line-indent;
+                @include rotate(0deg);
+            }
+        }
+    }
+
+    @media #{$medium-up} {
+        display: none;
+    }
+}
+
+// Header Navigation Links
+
+.header-nav-links {
+    padding-left: 0;
+    list-style: none;
+    @include clearfix;
+    margin: ($header-padding-vertical / 2) (-$header-padding-horizontal);
+
+    > li {
+        position: relative;
+        display: block;
+
+        > a {
+            line-height: $line-height-computed;
+            position: relative;
+            display: block;
+            padding: $header-nav-link-padding-vertical $header-nav-link-padding-horizontal;
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                background-color: $header-nav-link-hover-bg;
+            }
+
+            > img {
+                max-width: none;
+            }
+        }
+    }
+
+    .open > a {
+        &,
+        &:hover,
+        &:focus {
+            background-color: $header-nav-link-hover-bg;
+            border-color: $link-color;
+        }
+    }
+
+    @media #{$small-only} {
+        // Dropdowns get custom display when collapsed
+        .open .dropdown-menu {
+            position: relative;
+            float: none;
+            width: auto;
+            margin-top: 0;
+            background-color: transparent;
+            border: 0;
+            box-shadow: none;
+            > li > a,
+            .dropdown-header {
+                padding: 5px 15px 5px 25px;
+            }
+            > li > a {
+                line-height: $line-height-computed;
+                &:hover,
+                &:focus {
+                    background-image: none;
+                }
+            }
+        }
+    }
+
+    // Uncollapse the nav
+    @media #{$medium-up} {
+        float: left;
+        margin: 0;
+
+        > li {
+            float: left;
+            > a {
+                padding-top: $header-nav-link-padding-vertical;
+                padding-bottom: $header-nav-link-padding-vertical;
+            }
+        }
+    }
+}
+
+
+// Header Forms (Like Search)
+
+.header-form {
+    margin-left: -$header-padding-horizontal;
+    margin-right: -$header-padding-horizontal;
+    padding: 10px $header-padding-horizontal;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+    @include box-shadow($shadow);
+
+    .form-group {
+        @media #{$small-only} {
+            margin-bottom: 5px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Vertically center in expanded, horizontal header
+    @include header-vertical-align($input-height-base);
+
+    // Undo 100% width for pull classes
+    @media #{$medium-up} {
+        width: auto;
+        border: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        @include box-shadow(none);
+    }
+}
+
+
+// Vertically center a button within a header (when *not* in a form).
+.header-btn {
+    @include header-vertical-align(48);
+}
+
+// Plain Text in headers
+.header-text {
+  @include header-vertical-align($line-height-computed);
+
+  @media #{$medium-up} {
+    float: left;
+    margin-left: $header-padding-horizontal;
+    margin-right: $header-padding-horizontal;
+  }
+}
+
+// Header Component alignment
+@media #{$medium-up} {
+    .header-left {
+        float: left !important;
+    }
+    .header-right {
+        float: right !important;
+        margin-right: -$header-padding-horizontal;
+
+        ~ .header-right {
+            margin-right: 0;
+        }
+    }
+}
+
+.collapse {
+    display: none;
+
+    &.in { 
+        display: block;
+    }
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    @include transition-property(height, visibility);
+    @include transition-duration(.35s);
+    @include transition-timing-function(ease);
+}
+
+// DROPDOWN FUNCTIONALITY
+
+// Dropdown arrow/caret
+.dropdown {
+    position: relative;
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+    outline: 0;
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: $zindex-dropdown;
+    display: none; // none by default, but block on "open" of the menu
+    float: left;
+    min-width: 160px;
+    padding: 15px 0px;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: $font-size-base;
+    text-align: left;
+    background-color: $dropdown-menu-bg;
+    border: $dropdown-menu-border;
+    border-radius: $dropdown-menu-border-radius;
+    @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+    background-clip: padding-box;
+
+    // Shows menu, albeit permanently, for people with JS turned off
+    .no-js & {
+        display: block;
+    }
+
+    // Aligns the dropdown menu to right
+    &.pull-right {
+        right: 0;
+        left: auto;
+    }
+
+    // Links within the dropdown menu
+    > li > a {
+        display: block;
+        padding: 5px 20px;
+        clear: both;
+        font-weight: normal;
+        line-height: $line-height-base;
+        color: $white;
+        white-space: nowrap; // prevent links from randomly breaking onto new lines
+    }
+}
+
+// Menu position and menu carets
+.header-nav-links > li > .dropdown-menu {
+    margin-top: 0;
+    border-top-radius: 0px;
+}
+
+// Menu position and menu caret support for dropups via extra dropup class
+.header-fixed-bottom .header-nav-links > li > .dropdown-menu {
+    margin-bottom: 0;
+}
+
+// Hover/Focus state
+.dropdown-menu > li > a {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $white;
+        background-color: $dropdown-menu-bg-hover;
+    }
+}
+
+// Active state
+.dropdown-menu > .active > a {
+    &,
+    &:hover,
+    &:focus {
+        color: $white;
+        text-decoration: none;
+        outline: 0;
+        background-color: $dropdown-menu-bg-current;
+    }
+}
+
+
+// Open state for the dropdown
+.open {
+    > .dropdown-menu {
+        display: block;
+    }
+
+    > a {
+        outline: 0;
+    }
+}
+
+// Add to flip the alignment of the dropdown
+.dropdown-menu-right {
+    left: auto;
+    right: 0;
+}
+
+.dropdown-menu-left {
+    left: 0;
+    right: auto;
+}
+
+// Dropdown section headers
+.dropdown-header {
+    display: block;
+    padding: 3px 20px;
+    font-size: $font-size-base * $font-size-small-multiplier;
+    line-height: $line-height-base;
+    color: $dropdown-menu-bg;
+    white-space: nowrap;
+}
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown-backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: ($zindex-dropdown - 10);
+}
+
+// Right aligned dropdowns
+.pull-right > .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+// Component alignment
+@media #{$medium-up} {
+    .header-right {
+        .dropdown-menu {
+            right: 0; left: auto;
+        }
+        .dropdown-menu-left {
+            left: 0; right: auto;
+        }
+    }
+}
+
+// Style Wordpress Menu Output to look like an orderd list.
+.menu-chapters {
+    counter-reset: chapter-counter;
+    ul {
+        li {
+            counter-increment: chapter-counter;
+            a {
+                &:before {
+                    content: counter(chapter-counter) ". ";
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,306 @@
+//== COLORS
+
+$gray-1: #585F6B;
+$gray-2: #9B9FA6;
+$gray-3: #BCBFC3;
+$gray-4: #DEDFE1;
+$gray-5: #EBEBEB;
+$gray-6: #F5F6F6;
+
+$white: #FFFFFF;
+$black: #000000;
+
+$brand-primary: #577893;
+$brand-secondary: #2c3650;
+$brand-cta: #00A2B0;
+
+$brand-success: green;
+$brand-info:    lightblue;
+$brand-warning: orange;
+$brand-danger:  red;
+
+
+//== SCAFFOLDING
+
+$body-bg: $white;
+$text-color: #434951;
+$link-color: $brand-primary;
+$link-hover-color: darken($link-color, 5%);
+
+
+//== TYPOGRAPHY
+
+$font-family-sans-serif: "proxima-nova", "ProximaNova", "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif: Georgia, "Times New Roman", Times, serif;
+$font-family-base: $font-family-sans-serif;
+
+$font-size-base: 16px;
+$font-weight: 400;
+$font-weight-bold: 600;
+$font-size-large-multiplier: 1.25;
+$font-size-small-multiplier: 0.85;
+
+// Heading Font Sizing Map For Breakpoints (small, large)
+$heading-font-sizes: (
+    "h1": (
+        "small": 2.000em,
+        "large": 3.125em
+    ),
+    "h2": (
+        "small": 1.750em,
+        "large": 2.275em
+    ),
+    "h3": (
+        "small": 1.550em,
+        "large": 1.875em
+    ),
+    "h4": (
+        "small": 1.235em,
+        "large": 1.414em
+    ),
+    "h5": (
+        "small": 1.055em,
+        "large": 1.200em
+    ),
+    "h6": (
+        "small": 0.875em,
+        "large": 1.000em
+    )
+);
+
+$line-height-base: 1.428571429; // 20/14
+$line-height-computed: floor(($font-size-base * $line-height-base)); // ~20px
+
+$headings-font-family: inherit;
+$headings-font-weight: 300;
+$headings-line-height: 1.1;
+$headings-color: inherit;
+
+$border-radius-base: 6px;
+$padding-base-vertical: 6px;
+$padding-base-horizontal: 12px;
+
+
+
+
+//== MEDIA QUERIES
+
+$small-range: (0, 40em);
+$medium-range: (40.0625em, 64em);
+$large-range: (64.0625em, 90em);
+$xlarge-range: (90.0625em, 120em);
+$xxlarge-range: (120.0625em, 99999999em);
+$sidebar-requirement: 54em;
+
+$content-wrapper-padding: (
+    "small": 20px,
+    "medium": 10%,
+    "large": 150px
+);
+
+$screen: "only screen";
+
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
+
+$small-up: $screen;
+$small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})";
+
+$medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})";
+$medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width:#{upper-bound($medium-range)})";
+
+$large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})";
+$large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})";
+
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})";
+$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})";
+
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
+$xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
+
+$medium-down: "#{$screen} and (max-width:#{upper-bound($medium-range)})";
+$sidebar-up: "#{$screen} and (min-width:#{$sidebar-requirement})";
+
+$retina: (
+    "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
+    "#{$screen} and (min--moz-device-pixel-ratio: 2)",
+    "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
+    "#{$screen} and (min-device-pixel-ratio: 2)",
+    "#{$screen} and (min-resolution: 192dpi)",
+    "#{$screen} and (min-resolution: 2dppx)"
+);
+
+
+
+
+//== HEADER
+
+$header-height: 60px;
+$header-logo-height: 40px;
+$header-logo-height-small-multiplier: 0.7;
+$header-margin-bottom: 0px;
+$header-padding-horizontal: map-get($content-wrapper-padding, "small");
+$header-padding-vertical: ceil(($header-height - ($font-size-base * $line-height-base)) / 2);
+$header-collapse-max-height: 340px;
+
+$header-color: $white;
+$header-bg: $brand-secondary;
+$header-border: none;
+$header-collapse-border: 1px solid $gray-4;
+
+$header-link-color: $white;
+$header-link-hover-color: $white;
+
+$header-toggle-hover-bg: $gray-4;
+$header-toggle-border-color: $gray-4;
+$header-toggle-icon-color: $black;
+$header-toggle-width: 34px;
+$header-toggle-height: 34px;
+$header-toggle-padding: 0px;
+$header-toggle-line-width: 80%;
+$header-toggle-line-indent: 10%;
+
+$header-nav-link-padding-horizontal: 15px;
+$header-nav-link-padding-vertical: $header-padding-vertical;
+$header-nav-link-hover-bg: darken($brand-cta, 5%);
+
+
+
+
+//== CONTAINER WIDTHS
+
+$max-content-width: 1400px;
+$fluid-container-width: $max-content-width - (map-get($content-wrapper-padding, "large") * 2) + ($header-padding-horizontal * 2);
+
+
+
+
+//== BUTTONS
+
+$btn-scope: ".btn, button, input[type='submit']";
+
+$btn-colors: (
+    "btn-primary": (
+        "background-color": $brand-primary,
+        "border-color": $brand-primary,
+        "color": $white,
+
+        "hover-background-color": darken($brand-primary, 5%),
+        "hover-border-color": darken($brand-primary, 5%),
+        "hover-color": $white,
+
+        "active-background-color": darken($brand-primary, 8%),
+        "active-border-color": darken($brand-primary, 8%),
+        "active-color": $white,
+    ),
+    "btn-secondary": (
+        "background-color": $brand-secondary,
+        "border-color": $brand-secondary,
+        "color": $white,
+
+        "hover-background-color": lighten($brand-secondary, 5%),
+        "hover-border-color": lighten($brand-secondary, 5%),
+        "hover-color": $white,
+
+        "active-background-color": lighten($brand-secondary, 8%),
+        "active-border-color": lighten($brand-secondary, 8%),
+        "active-color": $white,
+    ),
+    "btn-outlined": (
+        "background-color": transparent,
+        "border-color": $brand-primary,
+        "color": $brand-primary,
+
+        "hover-background-color": rgba($brand-primary, 0.05),
+        "hover-border-color": $brand-primary,
+        "hover-color": $brand-primary,
+
+        "active-background-color": rgba($brand-primary, 0.1),
+        "active-border-color": $brand-primary,
+        "active-color": $brand-primary,
+    ),
+    "btn-outlined-inverted": (
+        "background-color": transparent,
+        "border-color": $white,
+        "color": $white,
+
+        "hover-background-color": rgba($white, 0.1),
+        "hover-border-color": $white,
+        "hover-color": $white,
+
+        "active-background-color": rgba($white, 0.2),
+        "active-border-color": $white,
+        "active-color": $white,
+    ),
+    "btn-cta": (
+        "background-color": $brand-cta,
+        "border-color": $white,
+        "color": $white,
+
+        "hover-background-color": darken($brand-cta, 5%),
+        "hover-border-color": $white,
+        "hover-color": $white,
+
+        "active-background-color": darken($brand-cta, 8%),
+        "active-border-color": $white,
+        "active-color": $white,
+    ),
+);
+
+$btn-sizes: (
+    "btn-small": (
+        "font-size": $font-size-base * $font-size-small-multiplier,
+        "padding": 0.75em 1.5em,
+    ),
+    "btn-default": (
+        "font-size": $font-size-base,
+        "padding": 1em 1.75em,
+    ),
+    "btn-large": (
+        "font-size": $font-size-base * $font-size-large-multiplier,
+        "padding": 1em 3em,
+    )
+);
+
+
+//== THUMBNAILS
+
+$thumbnail-padding: 4px;
+$thumbnail-bg: $white;
+$thumbnail-border: $gray-4;
+$thumbnail-border-radius: $border-radius-base;
+$thumbnail-caption-color: $text-color;
+$thumbnail-caption-padding: 9px;
+
+
+//== FORMS
+
+$input-bg: $white;
+$input-bg-disabled: $gray-5;
+$input-color: $gray-1;
+$input-border: #ccc;
+$input-border-radius: $border-radius-base;
+$input-border-focus: $brand-primary;
+$input-color-placeholder: #999;
+$input-height-base: ($line-height-computed + ($padding-base-vertical * 2) + 2);
+
+
+//== Z-INDICES
+$zindex-subpage-menu: 0;
+$zindex-page-content: 10;
+$zindex-header: 1000;
+$zindex-dropdown: 1000;
+$zindex-popover: 1060;
+$zindex-tooltip: 1070;
+$zindex-header-fixed: 1030;
+$zindex-modal-background: 1040;
+$zindex-modal: 1050;
+
+
+//== DROPDOWN MENUS
+
+$dropdown-menu-bg: $gray-1;
+$dropdown-menu-bg-hover: $gray-2;
+$dropdown-menu-bg-current: $gray-2;
+$dropdown-menu-border: none;
+$dropdown-menu-border-radius: 0;

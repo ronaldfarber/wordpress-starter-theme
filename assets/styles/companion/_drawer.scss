@@ -1,0 +1,83 @@
+$one-up-max-breakpoint: 480px;
+$two-up-max-breakpoint: 960px;
+
+.dresser-module {
+    @include list-reset;
+    text-align: left;
+    font-size: 0;
+
+    > li {
+        padding: 10px 0;
+    }
+
+    @media only screen and (min-width: $one-up-max-breakpoint) {
+        margin: 0 -10px;
+
+        > li {
+            width: 50%;
+            padding: 10px;
+            display: inline-block;
+            vertical-align: text-top;
+        }
+    }
+
+    @media only screen and (min-width: $two-up-max-breakpoint) {
+        margin: 0 -1%;
+
+        > li {
+            width: 25%;
+            padding: 1%;
+        }
+    }
+
+}
+
+.single-drawer-contents {
+    
+    &:focus {
+        outline:none;
+    }
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+
+    .drawer-name {
+        @include transition( color .2s );
+        display: block;
+    }
+
+    .drawer-name {
+        font-size: $font-size-base;
+        color: $text-color;
+        text-align: inherit;
+        margin: 0.6em 0 0.125em;
+    }
+
+    @media #{$large-up} {
+        .drawer-name {
+            font-size: $font-size-base;
+        }
+    }
+}
+
+// When a drawer item is selected, descriptions are copied via js 
+// and placed via a proxy DIV in the correct location; the 
+// ".drawer-item-description" within each <li> is never visible to users.
+
+.dresser-module {
+    .description-proxy {
+        font-size: $font-size-base;
+        width: 100%;
+        padding-top: $line-height-computed / 4;
+        
+        .proxy-inner {
+            padding: $line-height-computed;
+            background-color: $gray-5;
+        }
+    }
+}
+
+.drawer-item-description {
+    display: none;
+}

@@ -1,0 +1,43 @@
+aside {
+    width: 100%;
+    vertical-align: top;
+    font-size: $font-size-base;
+    text-align: center;
+
+    .dual-sponsor-wrapper {
+        margin-top: $line-height-computed;
+        margin-bottom: ($line-height-computed / 2);
+        
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    [class^="sponsor-"] {
+        display: inline-block;
+        vertical-align: top;
+        margin: ($line-height-computed / 2);
+
+        img {
+            margin: 0 auto;
+        }
+    }
+
+    .sidebar-block {
+        background: $white;
+        padding: $line-height-computed;
+        border: 1px solid $gray-4;
+        border-radius: $border-radius-base;
+        text-align: left;
+    }
+    
+    @media #{$sidebar-up} {
+        width: 300px;
+        float: left;
+        // display: inline-block;
+
+        [class^="sponsor-"] {
+            margin: 0 0 $line-height-computed;
+        }
+    }
+}

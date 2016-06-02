@@ -1,0 +1,37 @@
+// CUSTOM WORDPRESS STYLING
+
+#wp-admin-bar-wp-logo {
+    display:none !important;
+}
+
+
+// HIDE SPECIFIC TAXONOMIES FROM POST EDIT PAGE (Replaced with better UI where necessary)
+
+label[for="slugdiv-hide"] {
+    display: none;
+}
+
+.postbox#slugdiv {
+    display: none;
+}
+
+.tagcloud { 
+    display: none; 
+}
+
+// ACF FIELD CLASSES
+
+.force-border-right { border-right: 1px solid #eeeeee; };
+.force-border-left { border-left: 1px solid #eeeeee; };
+.remove-border-right { border-right: none !important; }
+.remove-border-left { border-left: none !important; }
+
+$wysiwig-editor-sizes: "50", "100", "150", "200";
+
+@each $size in $wysiwig-editor-sizes {
+    .wysiwyg-max-height-#{$size} iframe,
+    .wysiwyg-max-height-#{$size} textarea {
+        height: #{$size}px !important;
+        min-height: #{$size}px !important;
+    }
+}

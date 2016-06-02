@@ -1,0 +1,111 @@
+.clearfix {
+    @include clearfix;
+}
+
+.center-block {
+    @include center-block;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+.inline-block-parent {
+    font-size: 0;
+}
+
+// Visibility Classes
+
+// Only display content to screen readers
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+// Use in conjunction with .sr-only to only display content when it's focused.
+.sr-only-focusable {
+    &:active,
+    &:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+    }
+}
+
+// Hide from screenreaders and browsers alike
+.hide, .hidden {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.text-hide {
+    @include text-hide;
+}
+
+// Responsive visibility
+@media #{$medium-up} {
+    .show-for-small-only {
+        display: none !important;
+    }
+}
+
+@media #{$small-only} {
+    .hide-for-small {
+        display: none !important;
+    }
+}
+
+@media #{$medium-down} {
+    .show-for-large-only {
+        display: none !important;
+    }
+}
+
+// Touch support visibility
+.show-for-touch { display: none !important; }
+.hide-for-touch { display: inherit !important; }
+
+.touch .show-for-touch,
+.touchevents .show-for-touch { display: inherit !important; }
+
+.touch .hide-for-touch,
+.touchevents .hide-for-touch { display: none !important; }
+
+// Icons and add-ons
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top:   4px dashed;
+    border-top:   4px solid \9; // IE8
+    border-right: 4px solid transparent;
+    border-left:  4px solid transparent;
+}
+
+// Hide BrowserSync Overlay (during development)
+#__bs_notify__, #__bs_notify__ + div {
+    display: none !important;
+}

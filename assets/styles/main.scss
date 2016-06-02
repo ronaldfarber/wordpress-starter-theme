@@ -1,0 +1,46 @@
+// Core variables, mixins and reset
+
+@import "required/functions";
+@import "required/mixins";
+@import "required/variables";
+@import "required/normalize";
+@import "required/scaffolding";
+
+
+// Core CSS
+
+@import "common/global";
+@import "common/utilities";
+@import "common/wp-classes";
+
+
+// Common Elements
+
+@import "elements/type";
+@import "elements/header";
+@import "elements/footer";
+@import "elements/banners";
+@import "elements/articles";
+@import "elements/sidebars";
+@import "elements/buttons";
+@import "elements/forms";
+@import "elements/panels";
+
+
+// Companion Styles for JS Modules
+
+// @import "companion/collapse";
+// @import "companion/drawer";
+// @import "companion/slick";
+// @import "companion/magnific";
+// @import "companion/lightboxes";
+
+
+// Page Modules
+
+@import "modules/hero-banner";
+
+
+// Specific Page Layouts
+
+// @import "pages/page-name";

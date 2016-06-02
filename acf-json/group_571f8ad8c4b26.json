@@ -1,0 +1,351 @@
+{
+    "key": "group_571f8ad8c4b26",
+    "title": "Hero Banner",
+    "fields": [
+        {
+            "key": "field_571f92760c6bc",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Enter the title for the page header. If this is not provided, the page title will be used instead.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_571f8ad8c90d1",
+            "label": "Subtitle",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Enter the subtitle for the page, if desired . This will display below the page title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 50,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_572c11c1382bc",
+            "label": "Paragraph",
+            "name": "paragraph",
+            "type": "wysiwyg",
+            "instructions": "Enter paragraph text for the banner here, if desired . This will display below the page title and subtitle but above the button, if specified.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "wysiwyg-max-height-100",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "minimal",
+            "media_upload": 0
+        },
+        {
+            "key": "field_57313f89b45e3",
+            "label": "Background Type",
+            "name": "background_type",
+            "type": "select",
+            "instructions": "What type of background should this hero banner have?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "solid_color": "Solid Color",
+                "image": "Image",
+                "pattern": "Pattern"
+            },
+            "default_value": {
+                "Solid Color": "Solid Color"
+            },
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "disabled": 0,
+            "readonly": 0
+        },
+        {
+            "key": "field_573140b8b45e4",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "select",
+            "instructions": "What color background should this hero banner have?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bg-primary": "Primary",
+                "bg-secondary": "Secondary",
+                "bg-cta": "CTA",
+                "bg-info": "Info",
+                "bg-warning": "Warning",
+                "bg-white": "White"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "disabled": 0,
+            "readonly": 0
+        },
+        {
+            "key": "field_571f8ad8c90b4",
+            "label": "Banner Image",
+            "name": "banner_image",
+            "type": "image",
+            "instructions": "Select an image to be used as the hero banner for this page. If no image is selected, the site's primary color will be used instead.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57313f89b45e3",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "editor-preview-banner",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": 1600,
+            "max_height": 600,
+            "max_size": ".5",
+            "mime_types": "png, jpg, jpeg"
+        },
+        {
+            "key": "field_5731414db45e5",
+            "label": "Pattern Type",
+            "name": "pattern_type",
+            "type": "select",
+            "instructions": "What pattern type should this hero banner have?",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57313f89b45e3",
+                        "operator": "==",
+                        "value": "pattern"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "option1": "Option 1",
+                "option2": "Option 2",
+                "option3": "Option 3"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "disabled": 0,
+            "readonly": 0
+        },
+        {
+            "key": "field_57220557270ed",
+            "label": "Show Button?",
+            "name": "show_button",
+            "type": "true_false",
+            "instructions": "Do you want a call to action button at the bottom of this banner?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": 100,
+                "class": "",
+                "id": ""
+            },
+            "message": "Yes, show a button.",
+            "default_value": 0
+        },
+        {
+            "key": "field_5722131a18ef7",
+            "label": "Button Link Type",
+            "name": "button_link_type",
+            "type": "select",
+            "instructions": "What type of link is the button?",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57220557270ed",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": 33,
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "internal": "Internal",
+                "external": "External"
+            },
+            "default_value": {
+                "Internal": "Internal"
+            },
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "disabled": 0,
+            "readonly": 0
+        },
+        {
+            "key": "field_571f92ceff175",
+            "label": "Button Text",
+            "name": "button_text",
+            "type": "text",
+            "instructions": "Enter the text for the button.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57220557270ed",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": 33,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_572205b0270ee",
+            "label": "Button URL",
+            "name": "button_url",
+            "type": "url",
+            "instructions": "Where should the button link?",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57220557270ed",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_5722131a18ef7",
+                        "operator": "==",
+                        "value": "external"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": 33,
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5722139c18ef9",
+            "label": "Button Page Link",
+            "name": "button_page_link",
+            "type": "page_link",
+            "instructions": "Where should the button link?",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_57220557270ed",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_5722131a18ef7",
+                        "operator": "==",
+                        "value": "internal"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": 33,
+                "class": "",
+                "id": ""
+            },
+            "post_type": [],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1463105003
+}

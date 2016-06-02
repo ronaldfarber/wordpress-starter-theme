@@ -1,0 +1,151 @@
+// Clearfix
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Centered block-level elements
+
+@mixin center-block() {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+// Hidden Text
+
+@mixin text-hide() {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+
+// Unstyled Lists
+
+@mixin list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+@mixin list-reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+// Common Text Overrides
+
+@mixin uppercase-headline($spacing: 0.03em) {
+    text-transform: uppercase;
+    letter-spacing: #{$spacing}em;
+}
+
+
+// Box Sizing
+
+@mixin box-sizing($type:border-box) {
+    -webkit-box-sizing: $type; // Android < 2.3, iOS < 4
+    -moz-box-sizing: $type;
+     box-sizing: $type; // Chrome, IE 8+, Opera, Safari 5.1
+}
+
+
+// Placeholder text
+
+@mixin placeholder($color: $input-color-placeholder) {
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
+    &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+}
+
+
+// Transitions
+
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+@mixin transition-property($transition-property...) {
+    -webkit-transition-property: $transition-property;
+          transition-property: $transition-property;
+}
+@mixin transition-delay($transition-delay) {
+    -webkit-transition-delay: $transition-delay;
+          transition-delay: $transition-delay;
+}
+@mixin transition-duration($transition-duration...) {
+    -webkit-transition-duration: $transition-duration;
+          transition-duration: $transition-duration;
+}
+@mixin transition-timing-function($timing-function) {
+    -webkit-transition-timing-function: $timing-function;
+          transition-timing-function: $timing-function;
+}
+@mixin transition-transform($transition...) {
+    -webkit-transition: -webkit-transform $transition;
+     -moz-transition: -moz-transform $transition;
+       -o-transition: -o-transform $transition;
+          transition: transform $transition;
+}
+
+
+// Transformations
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+        -ms-transform: rotate($degrees); // IE9 only
+         -o-transform: rotate($degrees);
+            transform: rotate($degrees);
+}
+
+// Drop shadows
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+            box-shadow: $shadow;
+}
+
+
+// Vertical Alignment Within Header
+
+@mixin header-vertical-align($element-height) {
+    margin-top: (($header-height - $element-height) / 2);
+    margin-bottom: (($header-height - $element-height) / 2);
+}
+
+@mixin highlight-override($background-color, $color, $opacity: 0.75) {
+    ::-moz-selection {
+        background-color: rgba($background-color, $opacity);
+        color: $color;
+        text-shadow: none;
+    }
+
+    ::selection {
+        background-color:rgba($background-color, $opacity);
+        color: $color;
+        text-shadow: none;
+    }
+}
+
+// Fixes rendering bugs on fixed elements
+
+@mixin backface-visibility-fix {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+}

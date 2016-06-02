@@ -1,0 +1,28 @@
+article {
+    width: 100%;
+    background: $white;
+    padding: $line-height-computed;
+    border: 1px solid $gray-4;
+    border-radius: $border-radius-base;
+    margin-bottom: $line-height-computed;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @media #{$medium-up} {
+        padding: $line-height-computed * 1.5;
+    }
+
+    .single-post & {
+        @media #{$sidebar-up} {
+            width: calc(100% - 300px - #{$line-height-computed});
+            margin-right: $line-height-computed;
+            float: left;
+        }
+    }
+
+    @media #{$large-up} {
+        padding: $line-height-computed * 2;
+    }
+}

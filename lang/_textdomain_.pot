@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 404.php
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr ""
+
+#: index.php, search.php
+msgid "Sorry, no results were found."
+msgstr ""
+
+#: lib/setup.php
+msgid "Primary Navigation"
+msgstr ""
+
+#: lib/titles.php
+msgid "Search Results for %s"
+msgstr ""
+
+#: lib/titles.php
+msgid "Not Found"
+msgstr ""

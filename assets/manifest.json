@@ -1,0 +1,35 @@
+{
+    "dependencies": {
+        "main.js": {
+            "vendor": [
+                "assets/scripts/vendor/modernizr/modernizr.js"
+            ],
+            "files": [
+                "scripts/main.js"
+            ],
+            "main": true
+        },
+        "main.css": {
+            "files": [
+                "styles/main.scss"
+            ],
+            "main": true
+        },
+        "editor.css": {
+            "files": [
+                "styles/editor.scss"
+            ]
+        },
+        "admin.css": {
+            "files": [
+                "styles/admin.scss"
+            ]
+        },
+        "jquery.js": {
+            "bower": ["jquery"]
+        }
+    },
+    "config": {
+        "devUrl": "http://local.development.com"
+    }
+}
